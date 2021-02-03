@@ -18,7 +18,7 @@ Components: <br/>
 __AIRBREAKS__<br/>
 Components: <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- NEMA-17 Stepper (or something similar)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;- Stepper motor driver<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- A4988 Stepper Motor Driver Module<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Barometric pressure sensor (still need to decide on type)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Arduino Nano<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- 9V battery<br/>
