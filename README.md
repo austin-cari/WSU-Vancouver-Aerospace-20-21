@@ -6,7 +6,7 @@ There are three main electrical systems in the rocket. The avionics bay is where
 __AV BAY__<br/>
 *Components:*  <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Atlas Telemetrum<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;- Backup flight computer (get more details ASAP)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- RRC3 (Backup flight computer)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Raspberry Pi 4 Model B<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- 4x Raspberry Pi Camera Modules 8MP<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Arducam Multi Camera Adapter module<br/>
