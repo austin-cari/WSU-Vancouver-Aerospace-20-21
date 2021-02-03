@@ -5,14 +5,15 @@ There are three main electrical systems in the rocket. The avionics bay is where
 
 __AV BAY__<br/>
 Components:  <br/>
-    - Raspberry Pi 4 Model B<br/>
-    - 4x Raspberry Pi Camera Modules 8MP<br/>
-    - Arducam Multi Camera Adapter module<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Atlas Telemetrum<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Raspberry Pi 4 Model B<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- 4x Raspberry Pi Camera Modules 8MP<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Arducam Multi Camera Adapter module<br/>
     
 __PAYLOAD__<br/>
 Components: <br/>
-    - MPU-6050 (GY-521 breakout board)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- MPU-6050 (GY-521 breakout board)<br/>
 
 __AIRBREAKS__<br/>
 Components: <br/>
-    - 28BYJ-48 stepper motor<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- 28BYJ-48 stepper motor<br/>
