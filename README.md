@@ -16,10 +16,10 @@ Components: <br/>
 
 __AIRBREAKS__<br/>
 Components: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;- NEMA-17 Stepper (or something similar)
-&nbsp;&nbsp;&nbsp;&nbsp;- Stepper motor driver
-&nbsp;&nbsp;&nbsp;&nbsp;- Barometric pressure sensor (still need to decide on type)
-&nbsp;&nbsp;&nbsp;&nbsp;- Arduino Nano
-&nbsp;&nbsp;&nbsp;&nbsp;- 9V battery
-&nbsp;&nbsp;&nbsp;&nbsp;- Hw-125 Micro SD card adapter
-&nbsp;&nbsp;&nbsp;&nbsp;- Micro SD card
+&nbsp;&nbsp;&nbsp;&nbsp;- NEMA-17 Stepper (or something similar)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Stepper motor driver<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Barometric pressure sensor (still need to decide on type)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Arduino Nano<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- 9V battery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Hw-125 Micro SD card adapter<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Micro SD card<br/>
