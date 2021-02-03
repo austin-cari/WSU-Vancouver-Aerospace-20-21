@@ -13,6 +13,7 @@ Components:  <br/>
 __PAYLOAD__<br/>
 Components: <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- MPU-6050 (GY-521 breakout board)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Arduino Nano<br/>
 
 __AIRBREAKS__<br/>
 Components: <br/>
