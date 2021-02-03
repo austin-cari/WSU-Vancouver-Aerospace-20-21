@@ -14,6 +14,11 @@ __PAYLOAD__<br/>
 Components: <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- MPU-6050 (GY-521 breakout board)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Arduino Nano<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Stepper motor<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- A4988 Stepper Motor Driver Module<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Crossband repeater<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- 9V battery<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- Lipo Battery Pack<br/>
 
 __AIRBREAKS__<br/>
 Components: <br/>
@@ -24,3 +29,5 @@ Components: <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- 9V battery<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Hw-125 Micro SD card adapter<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;- Micro SD card<br/>
+
+Purpose: To slow down the rocket and increase drag
