@@ -16,4 +16,10 @@ Components: <br/>
 
 __AIRBREAKS__<br/>
 Components: <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;- 28BYJ-48 stepper motor<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;- NEMA-17 Stepper (or something similar)
+&nbsp;&nbsp;&nbsp;&nbsp;- Stepper motor driver
+&nbsp;&nbsp;&nbsp;&nbsp;- Barometric pressure sensor (still need to decide on type)
+&nbsp;&nbsp;&nbsp;&nbsp;- Arduino Nano
+&nbsp;&nbsp;&nbsp;&nbsp;- 9V battery
+&nbsp;&nbsp;&nbsp;&nbsp;- Hw-125 Micro SD card adapter
+&nbsp;&nbsp;&nbsp;&nbsp;- Micro SD card
