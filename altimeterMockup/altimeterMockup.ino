@@ -58,27 +58,20 @@ movingAvg avgAlt(10);    // moving average with 10 data points
 uint32_t start, stop, count;  // variables for time elapsed and data point number
 String fileLine;
 
+/* Used to calculate apogee. Must be global so they persist between loops */
+int alt1, alt2;
+double vel1, vel2;
+double acc;
+unsigned long time1, time2;
+boolean deployed = false;
+
+/*<><><><><><><><><><><><><><><><><><><>SETUP<><><><><><><><><><><><><><><><><><><><><>*/
 
 void setup()
 {
   // Start serial
   Serial.begin(115200);
   while( !Serial ){ ; }   // loop until serial is connected
-
- 
-
-  /* -------------------Initialize and test Display------------------ */
-   /*// Start Wire
-  Wire.begin();
-  Wire.setClock(400000L);  // I2C communications set to 400khz  
-  */
-  /*
-  Serial.println("Initializing SSD1306...");
-  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-  oled.begin(&Adafruit128x64, I2C_ADDRESS); // Address 0x3C for 128x64
-  oled.setFont(Adafruit5x7);    // set font to standard
-  oled.set2X();                 // set text size to double
-  */
 
   /* ----------------Initialize and test Barometer -------------------*/
   Serial.println("Initializing Barometer...");
@@ -102,7 +95,7 @@ void setup()
     Serial.print("Creating file: ");
     Serial.println(FILENAME);
     myFile = SD.open(FILENAME, FILE_WRITE);
-    myFile.println("DUR,TEMP,PRES,ALT,AVG_ALT");
+    myFile.println("DUR,TEMP,PRES,ALT,AVG_ALT,VEL,ACC,PROJ_APOGEE");
     myFile.close();
   }
 
@@ -120,7 +113,7 @@ void setup()
   } 
   
   // Start count for serial, print header to serial
-  Serial.println("CNT\tDUR\tTEMP\tPRES\tAltitude\tAlt Avg");
+  Serial.println("CNT\tDUR\tTEMP\tPRES\tAltitude\tAlt Avg\t");
 
   /* Start moving average object */
   avgAlt.begin();
@@ -130,6 +123,8 @@ void setup()
   
   delay(1000);
 }
+
+/*<><><><><><><><><><><><><><><><><><><>LOOP<><><><><><><><><><><><><><><><><><><><><>*/
 
 void loop()
 {
@@ -144,6 +139,40 @@ void loop()
   altitude = (1 - pow((pressure / SEA_LEVEL), 0.190284)) * 145366.45;
   int altToInt = ( altitude - floor(altitude) > 0.5 ) ? ceil(altitude) : floor(altitude);   // round appropriately
   int avg = avgAlt.reading(altToInt);
+
+  /* Using time and altitude, calculate velocity and acceleration */
+
+  time2 = time1;
+  time1 = millis();
+
+  //Make sure to add checks that you have valid values for alt, vel and acc
+  alt2 = alt1;
+  alt1 = avgAlt.getAvg();
+
+  vel2 = vel1;
+  double vel1 = (alt1 - alt2)/(time1 - time2);
+
+  double acc = (vel1 - vel2)/(time1 - time2);
+
+  /* Using alt, vel and acc calculate apogee */
+  double projectedApogee = ((vel1 * vel1)/(-2 * acc)) + alt1;
+
+  if(projectedApogee > (10000)){
+    // Already deployed
+    if(deployed == true){
+    }
+    else {
+      // Deploy the airbreaks
+      deployed = true;
+    }
+  }
+  else {
+    // If airbreaks are deployed, retract them back into the body tube
+    if(deployed == true){
+      // Retract the airbreaks
+      deployed = false;
+    }
+  }
 
   /* Print results to serial for debugging */
   Serial.print(count);
@@ -172,7 +201,13 @@ void loop()
   myFile.print(",");
   myFile.print(altitude);
   myFile.print(",");
-  myFile.println(avg);
+  myFile.print(avg);
+  myFile.print(",");
+  myFile.print(vel1);
+  myFile.print(",");
+  myFile.print(acc);
+  myFile.print(",");
+  myFile.println(projectedApogee);
   myFile.close();
 
   //delay(100);
@@ -180,3 +215,19 @@ void loop()
 }
 
 // -- END OF FILE --
+
+/*NOTES:
+
+  1) Must add error checkers during loop to make sure that all readings have valid readings
+  
+  2) Should add a variable that is calibrated to the ground level, not sea level. Currently,
+  the projected apogee is compared against sea level when it should be compared against ground
+  level.
+  
+  3) Other methods to calculate velocity include installing a pitot tube or integrating over 
+  all of the accelerometer point readings. These should be explored, however some cons to 
+  integrating over all the data readings is that this could be expensive in time and a pitot
+  tube may impact air flow of the rocket if extended from the cone. Also, pitot tubes are rather
+  expensive.
+  
+END OF NOTES*/
